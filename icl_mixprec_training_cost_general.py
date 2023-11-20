@@ -21,7 +21,7 @@ from pytorch_model_summary import summary
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-from hardware_models.hardware_model_bitops import (compute_cycles_mpic,
+from hardware_models.hardware_model_mpic import (compute_cycles_mpic,
                                                  compute_energy_mpic)
 from hardware_models.hardware_model_ne16 import compute_cycles_ne16
 
