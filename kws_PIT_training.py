@@ -4,7 +4,6 @@ import logging
 import math
 import os
 import pathlib
-# import sys
 from typing import Dict, cast
 
 import pytorch_benchmarks.keyword_spotting as kws
@@ -20,11 +19,6 @@ from plinio.methods import PIT
 
 os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":16:8"
 
-# sys.stdout = open(os.devnull, 'w')
-# sys.stderr = open(os.devnull, 'w')
-
-# torch.autograd.set_detect_anomaly(True)  # 8x slow exec
-
 CLASS_COUNTS = torch.tensor(
     [3134., 3106., 3037., 3130., 2970., 3086., 3019., 3111., 2948., 3228., 668., 54074.]).cuda()
 N_CLASSES = len(CLASS_COUNTS)
@@ -36,57 +30,6 @@ def anneal_temperature(temperature):
     # FbNetV2-like annealing
     return temperature * math.exp(-0.045)
 
-
-def alpha_to_list(alpha):
-    d = {}
-    for key in alpha.keys():
-        d[key] = alpha[key]["w_precision"].detach().cpu().tolist()
-    return d
-
-
-# def adjust_learning_rate(optimizer, epoch):
-#     """Scheduler for the search phase"""
-#     if epoch < 50:
-#         lr = 1e-3
-#     elif epoch < 100:
-#         lr = 5e-4
-#     elif epoch < 150:
-#         lr = 2.5e-4
-#     else:
-#         lr = 1e-4
-#     for param_group in optimizer.param_groups:
-#         param_group['lr'] = lr
-
-
-# def adjust_learning_rate_ft(optimizer, epoch):
-#     """Scheduler for the fine-tuning phase"""
-#     if epoch < 50:
-#         lr = 1e-4
-#     elif epoch < 100:
-#         lr = 5e-5
-#     elif epoch < 150:
-#         lr = 2.5e-5
-#     else:
-#         lr = 1e-5
-#     for param_group in optimizer.param_groups:
-#         param_group['lr'] = lr
-
-
-# def adjust_learning_rate(optimizer, epoch):
-#     """Scheduler"""
-#     if epoch < 50:
-#         lr = optimizer.param_groups[0]['lr']
-#     elif epoch < 100:
-#         previous_lr = optimizer.param_groups[0]['lr']
-#         lr = previous_lr / 2
-#     elif epoch < 150:
-#         previous_lr = optimizer.param_groups[0]['lr']
-#         lr = previous_lr / 2
-#     else:
-#         previous_lr = optimizer.param_groups[0]['lr']
-#         lr = previous_lr / 2.5
-#     for param_group in optimizer.param_groups:
-#         param_group['lr'] = lr
 
 def adjust_learning_rate(optimizer, epoch):
     """Scheduler"""
@@ -112,8 +55,7 @@ def evaluate(
         data: DataLoader,
         device: torch.device,
         reg_strength: float = 0.) -> Dict[str, float]:
-    """Evaluation function. If the model is in MixPrec format and thus has some architectural
-    coefficients, the simple argmax operation is used to select the precision."""
+
     model.eval()
     avgacc = AverageMeter('6.2f')
     avgloss = AverageMeter('2.5f')
