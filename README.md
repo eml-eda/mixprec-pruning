@@ -16,7 +16,7 @@ More details and experiments on different benchmarks can be found in our paper.
 
 
 ## MPIC and NE16 deployment results
-We have evaluated our approach on CIFAR-10 with the Mixed-Precision Inference Core (MPIC) and Neural Engine 16 (NE16) accelerator hardware cost models. We then evaluated the obtained architecture on both hardware, to assess the importance of a well-tailored cost models during training to obtain good architectures.
+We have evaluated our approach on CIFAR-10 with the Mixed Precision Inference Core (MPIC) and Neural Engine 16 (NE16) accelerator hardware cost models. We then evaluated the obtained architecture on both hardware, to assess the importance of a well-tailored cost models during training to obtain good architectures.
 
 <div align="center">
     <img src="assets/CIFAR-10_MPIC_and_NE16.png" width="600">
