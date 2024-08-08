@@ -15,7 +15,7 @@ We report below the results on the CIFAR-10 benchmark, when employ the hardware-
 We have evaluated our approach on CIFAR-10 with the MPIC and NE16 hardware cost models. We then evaluated the obtained architecture on both hardware, to assess the importance of a well-tailored cost models during training to obtain good architectures.
 
 <div align="center">
-    <img src="assets/CIFAR-10_MPIC_and_NE16.png" width="400">
+    <img src="assets/CIFAR-10_MPIC_and_NE16.png" width="600">
 </div>
 
 
@@ -23,7 +23,10 @@ We have evaluated our approach on CIFAR-10 with the MPIC and NE16 hardware cost 
 ## Scaling to larger benchmarks and datasets
 We have also considered the ImageNet dataset to assess the behavior of the algorithm for large models. We adopted the same training protocol and quantization schemes used in the other experiments of our manuscript (note that the results could be improved by exploring more advanced quantization algorithms and training hyperparameters, which are fully orthogonal to our optimization method).
 
-![Alt text](assets/ImageNet_MPIC_and_NE16.png)
+<div align="center">
+    <img src="assets/ImageNet_MPIC_and_NE16.png" width=750">
+</div>
+
 
 Our proposed algorithm was able to obtain a Pareto front of architectures in the accuracy vs. number of inference cycles space, surpassing the fixed-precision baselines, especially in the low cycles regime. These results confirmed that our method can still work for larger-scale datasets and models.
 
