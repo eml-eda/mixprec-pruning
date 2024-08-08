@@ -14,7 +14,10 @@ We report below the results on the CIFAR-10 benchmark, when employ the hardware-
 ## MPIC and NE16 deployment results
 We have evaluated our approach on CIFAR-10 with the MPIC and NE16 hardware cost models. We then evaluated the obtained architecture on both hardware, to assess the importance of a well-tailored cost models during training to obtain good architectures.
 
-![Alt text](assets/CIFAR-10_MPIC_and_NE16.png)
+<div align="center">
+    <img src="assets/CIFAR-10_MPIC_and_NE16.png" width="400">
+</div>
+
 
 
 ## Scaling to larger benchmarks and datasets
