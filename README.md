@@ -8,7 +8,10 @@ For this project the cost models of MPIC and the NE16 DNN accelerator have been 
 ## Size regularizer - CIFAR-10
 We report below the results on the CIFAR-10 benchmark, when employ the hardware-agnostic size regularizer. We compare with various state-of-the-art approaches, and with the sequential application of a pruning algorithm (PIT) and a channel-wise mixed-precision quantization technique (denoted as "MixPrec" in the plot).
 
-![Alt text](assets/CIFAR-10_Size.png)
+<div align="center">
+    <img src="assets/CIFAR-10_Size.png" width="600">
+</div>
+
 
 
 ## MPIC and NE16 deployment results
