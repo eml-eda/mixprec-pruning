@@ -1,5 +1,5 @@
 # Joint Pruning and Mixed-Precision Quantization
-This repository contains code to perform jointly mixed-precision quantization and pruning.
+This repository contains the code to jointly perform mixed-precision quantization and pruning, with a differentiable algorithm. Check out our paper "Joint Pruning and Channel-wise Mixed-Precision Quantization for Efficient Deep Neural Networks" ([arxiv](https://arxiv.org/abs/2407.01054)) for more details about the algorithm and the implementation.
 
 For this project the cost models of MPIC and the NE16 DNN accelerator have been used and are located in the `hardware_models` folder.
 
@@ -12,16 +12,17 @@ We report below the results on the CIFAR-10 benchmark, when employ the hardware-
     <img src="assets/CIFAR-10_Size.png" width="600">
 </div>
 
+More details and experiments on different benchmarks can be found in our paper.
 
 
 ## MPIC and NE16 deployment results
-We have evaluated our approach on CIFAR-10 with the MPIC and NE16 hardware cost models. We then evaluated the obtained architecture on both hardware, to assess the importance of a well-tailored cost models during training to obtain good architectures.
+We have evaluated our approach on CIFAR-10 with the Mixed-Precision Inference Core (MPIC) and Neural Engine 16 (NE16) accelerator hardware cost models. We then evaluated the obtained architecture on both hardware, to assess the importance of a well-tailored cost models during training to obtain good architectures.
 
 <div align="center">
     <img src="assets/CIFAR-10_MPIC_and_NE16.png" width="600">
 </div>
 
-
+We refer to our paper for more details on the cost models and on the conducted experiments.
 
 ## Scaling to larger benchmarks and datasets
 We have also considered the ImageNet dataset to assess the behavior of the algorithm for large models. We adopted the same training protocol and quantization schemes used in the other experiments of our manuscript (note that the results could be improved by exploring more advanced quantization algorithms and training hyperparameters, which are fully orthogonal to our optimization method).
